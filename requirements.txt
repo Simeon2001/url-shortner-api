@@ -5,6 +5,4 @@ sqlparse==0.4.1
 pytz==2021.1
 asgiref==3.4.1
 django-cors-headers
-psycopg2
-dj-database-url
 graphene-django
