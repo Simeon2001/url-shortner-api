@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mj4)l^@n9(fz^g(mss$^a9*3w^x5x$sx%+e#$b+smn+&f&n^s@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['graphshort.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['graphshort.herokuapp.com','127.0.0.1','botyl.herokuapp.com']
 
 
 # Application definition
