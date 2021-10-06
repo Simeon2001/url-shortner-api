@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mj4)l^@n9(fz^g(mss$^a9*3w^x5x$sx%+e#$b+smn+&f&n^s@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['graphshort.herokuapp.com']
+ALLOWED_HOSTS = ['graphshort.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -125,7 +125,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
