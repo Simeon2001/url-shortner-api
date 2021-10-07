@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'shortner',
         'host': 'mongodb+srv://shortner:Zebra1234@cluster0.t969d.mongodb.net/shortner?retryWrites=true&w=majority',
-        'client' : pymongo.MongoClient("mongodb+srv://(Username):(Password)@(Cluster)/(database name)?retryWrites=true&w=majority"),
+        'client' : pymongo.MongoClient("mongodb+srv://shortner:Zebra1234@cluster0.t969d.mongodb.net/shortner?retryWrites=true&w=majority"),
         'db' : 'client.test'
 
     }
