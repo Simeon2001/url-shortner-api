@@ -8,5 +8,5 @@ django-cors-headers
 graphene-django
 psycopg2
 dj-database-url
-pymongo[srv]
+"pymongo[srv]"
 pymongo

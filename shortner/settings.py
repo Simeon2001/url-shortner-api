@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-#import dj_database_url
 import pymongo
 from pymongo import MongoClient
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['graphshort.herokuapp.com','127.0.0.1']
 INSTALLED_APPS = [
     'shorturl',
     'graphene_django',
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +44,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'shortner.urls'
@@ -87,6 +84,7 @@ DATABASES = {
     }
 }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -98,7 +96,7 @@ DATABASES = {
     }
 }
 
-#db_from_env = dj_database_url.config(conn_max_age=600,ssl_require=True)
+#db_from_env = dj_database_url.config(conn_max_age=600)
 #DATABASES['default'].update(db_from_env)
 
 # Password validation
@@ -137,8 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -152,5 +151,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if os.getcwd()=='/app':
     DEBUG=False
-
-CORS_ORIGIN_ALLOW_ALL = True
