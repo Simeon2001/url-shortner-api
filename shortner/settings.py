@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
-
+#import dj_database_url
+import pymongo
+from pymongo import MongoClient
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -86,8 +87,19 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600,ssl_require=True)
-DATABASES['default'].update(db_from_env)
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'shortner',
+        'host': 'mongodb+srv://shortner:Zebra1234@cluster0.t969d.mongodb.net/shortner?retryWrites=true&w=majority',
+        'client' : pymongo.MongoClient("mongodb+srv://(Username):(Password)@(Cluster)/(database name)?retryWrites=true&w=majority"),
+        'db' : 'client.test'
+
+    }
+}
+
+#db_from_env = dj_database_url.config(conn_max_age=600,ssl_require=True)
+#DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
