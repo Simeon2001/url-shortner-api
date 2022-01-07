@@ -9,7 +9,7 @@ class all_url(DjangoObjectType):
 
     class Meta:
         model = links
-        fields = ['url','detail']
+        fields = ['url','detail','extension','short_url']
 
 class Query (graphene.ObjectType):
     all_links = graphene.List(all_url)
@@ -29,7 +29,8 @@ class UrlMutation (graphene.Mutation):
         c = (dd.encode('UTF-8'))
         m = hashlib.sha256(c).hexdigest()
         v = m[0:5]
-        link = links(url=url,detail=detail,extension=v)
+        short = "http://127.0.0.1:8000/{0}".format(v)
+        link = links(url=url,detail=detail,extension=v,short_url=short)
         link.save()
         return UrlMutation(link=link)
 
